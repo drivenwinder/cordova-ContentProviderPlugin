@@ -27,13 +27,14 @@ document.addEventListener("deviceready", function () {
 	"use strict";
 	var btnTestQuery = document.getElementById("btnTestQuery"),
 		output = document.getElementById("output");
+		var testUri="content://com.sie.plugin.context.contentprovider/context";
 	btnTestQuery.addEventListener("click", function () {
 		window.plugins.contentproviderplugin.query({
-			contentUri: "content://sms/inbox",
-			projection: ["address", "date", "body"],
+			contentUri: testUri,
+			projection: null,
 			selection: null,
 			selectionArgs: null,
-			sortOrder: "date DESC"
+			sortOrder:null
 		}, function (data) {
 			console.log(JSON.stringify(data));
 			viewMethods.outputData(output, data);
@@ -41,5 +42,25 @@ document.addEventListener("deviceready", function () {
 			console.log("error query");
 			output.innerText = "query error: " + err;
 		});
+	});
+
+	var btnUpdate = document.getElementById("btnUpdate");
+	btnUpdate.addEventListener("click", function () {
+		var ctxkey = document.getElementById("key").value;
+		var ctxvalue = document.getElementById("value").value
+		window.plugins.contentproviderplugin.update(
+			{
+				contentUri:testUri,
+				key: ctxkey,
+				value: ctxvalue
+			},
+			function (data) {
+				console.log(data);
+				btnTestQuery.click();
+			},
+			function (err) {
+				console.log(err);
+			}
+		)
 	});
 }, false);
