@@ -19,13 +19,9 @@ You can add permissions through the `plugin.xml` file of the Cordova plugin. The
 
 ## Installation
 
-Through Cordova Repo (stable):
-
-    cordova plugin add com.phearme.cordovaplugin.contentproviderplugin
-
 Through Github Repo (latest):
 
-    cordova plugin add https://github.com/phearme/cordova-ContentProviderPlugin
+    cordova plugin add https://github.com/drivenwinder/cordova-ContentProviderPlugin.git
 
 ## Example Usage
 
