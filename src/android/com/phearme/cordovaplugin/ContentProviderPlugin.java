@@ -165,7 +165,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             return;
         }
         if (contentUri == null) {
-            callback.error("contentUri must not empty or null");
+            callback.error("contentUri must not be empty or null");
             return;
         }
 
@@ -178,7 +178,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         }
 
         if (key == null) {
-            callback.error("key must not empty or null");
+            callback.error("key must not be empty or null");
             return;
         }
 
