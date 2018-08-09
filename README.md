@@ -40,7 +40,16 @@ Through Github Repo (latest):
 		}, function (err) {
 			console.log("error query");
 		});
-
+		
+      window.plugins.contentproviderplugin.update({			{
+			contentUri:"content://com.sie.plugin.context.contentprovider/context",
+			key: "UserId",
+			value: "56"
+			},function (data) {
+				console.log(data);
+			},function (err) {
+				console.log(err);
+	        });
 
 
 #### Licence
